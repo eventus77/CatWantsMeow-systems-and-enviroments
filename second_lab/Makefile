@@ -1,7 +1,7 @@
 KEY = '1234567812345678'
-INPUT = 'text'
-ENCRYPTED_OUTPUT = 'encrypted'
-DECRYPTED_OUTPUT = 'decrypted'
+INPUT = 'sample/text'
+ENCRYPTED_OUTPUT = 'sample/encrypted'
+DECRYPTED_OUTPUT = 'sample/decrypted'
 
 run: tea.c
 	@gcc -std=c99 -o tea tea.c
