@@ -8,5 +8,10 @@ run: tea.c
 	@./tea encrypt $(KEY) $(INPUT) $(ENCRYPTED_OUTPUT)
 	@./tea decrypt $(KEY) $(ENCRYPTED_OUTPUT) $(DECRYPTED_OUTPUT)
 	@cmp -l $(INPUT) $(DECRYPTED_OUTPUT)
+
+keygen: tea.c
+	@gcc -std=c99 -o tea tea.c
+	@./tea generate_key
+
 clean:
 	@rm -f $(ENCRYPTED_OUTPUT) $(DECRYPTED_OUTPUT) tea

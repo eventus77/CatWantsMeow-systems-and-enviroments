@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 #define min(a, b)  (a < b) ? a : b
 
@@ -70,8 +73,20 @@ FILE* open_file(int argn, int argc, const char *argv[], const char* mode) {
 }
 
 
+void generate_key(char* key) {
+    srand(time(NULL));
+    memset(key, 0, KEY_LENGTH + 1);
+    for (int i = 0; i < KEY_LENGTH; ++i) {
+        key[i] = rand() % ('z' - 'A') + 'A';
+    }
+}
+
+
 int main(int argc, const char *argv[]) {
     if (argc == 2 && !strcmp(argv[1], GENERETE_KEY_ARGUMENT)) {
+        char key[KEY_LENGTH + 1];
+        generate_key(key);
+        printf("%s\n", key);
     }
     else if (argc == 5) {
         int key[4];
