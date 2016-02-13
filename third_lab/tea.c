@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 #define min(a, b)  (a < b) ? a : b
 
 #define GENERETE_KEY_ARGUMENT "generate_key"
