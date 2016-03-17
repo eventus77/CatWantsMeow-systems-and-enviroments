@@ -20,7 +20,7 @@ void update_time(char* buffer, int buffer_length) {
     time(&rawtime);
     struct tm *info = localtime(&rawtime);
     memset(buffer, 0, buffer_length);
-    strftime(buffer, buffer_length,"%x %X", info);
+    strftime(buffer, buffer_length,"%x %X\n", info);
 }
 
 
@@ -31,7 +31,7 @@ void server_terminate_handler() {
 }
 
 void server_entry() {
-    printf("Server is started. Pid: %d)\n", getpid());
+    printf("Server is started. Pid: %d\n", getpid());
     setsid();
 
     struct sigaction signal_action;
