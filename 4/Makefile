@@ -9,6 +9,7 @@ stop:
 	@-pkill $(EXECUTABLE); true
 
 build: stop
+	@mkdir -p bin
 	@gcc -std=gnu99 $(HEADERS) $(SOURCES) -o $(EXECUTABLE_PATH)
 
 run: build

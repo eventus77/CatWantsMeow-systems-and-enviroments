@@ -21,6 +21,7 @@ genkey: tea.c
 	@./tea generate_key
 
 gentests: testgen.c
+	@mkdir -p tests
 	@gcc -std=c99 -o testgen testgen.c
 	@./testgen $(TEST_COUNT) $(TEST_LENGTH)
 

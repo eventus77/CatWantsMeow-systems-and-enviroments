@@ -11,13 +11,13 @@
 
 
 #define FIFO_PATH "/tmp/now.fifo"
-#define TIME_REFRESH_DELAY 1000 * 1000
-#define PIPE_REFRESH_DELAY TIME_REFRESH_DELAY / 10
+#define TIME_REFRESH_DELAY (1000 * 1000)
+#define PIPE_REFRESH_DELAY (TIME_REFRESH_DELAY / 10)
 
 
 void update_time(char* buffer, int buffer_length) {
     time_t rawtime;
-    time(&rawtime);
+    rawtime = time(NULL);
     struct tm *info = localtime(&rawtime);
     memset(buffer, 0, buffer_length);
     strftime(buffer, buffer_length,"%x %X\n", info);
